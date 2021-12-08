@@ -20,57 +20,6 @@ pppmat <- matrix(ppp, ncol = 6, byrow = TRUE)
 nsim <- multi.sim(pppmat)
 dev.off()
 
-ppp <- data.frame(rbind(summary(as.vector(log(attr(nsim[[1]]$summary[[1]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[1]]$summary[[2]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[1]]$summary[[3]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[1]]$summary[[4]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[1]]$summary[[5]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[2]]$summary[[1]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[2]]$summary[[2]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[2]]$summary[[3]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[2]]$summary[[4]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[2]]$summary[[5]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[3]]$summary[[1]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[3]]$summary[[2]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[3]]$summary[[3]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[3]]$summary[[4]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[3]]$summary[[5]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[4]]$summary[[1]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[4]]$summary[[2]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[4]]$summary[[3]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[4]]$summary[[4]], 'Lambda')$v))),
-      summary(as.vector(log(attr(nsim[[4]]$summary[[5]], 'Lambda')$v)))))
-ppp$Set <- rep(paste0("Set", 1:nrow(pppmat)), each=unique(pppmat[,1]))
-ppp$Pattern <- paste0("Pattern", 1:(nrow(pppmat)*unique(pppmat[,1])))
-write.csv(ppp, paste0('summary-ppp-', mn, '.csv'))
-
-
-
-
-
-npoints <- rbind(nsim[[1]]$summary[[1]]$n,
-                 nsim[[1]]$summary[[2]]$n,
-                 nsim[[1]]$summary[[3]]$n,
-                 nsim[[1]]$summary[[4]]$n,
-                 nsim[[1]]$summary[[5]]$n,
-                 nsim[[2]]$summary[[1]]$n,
-                 nsim[[2]]$summary[[2]]$n,
-                 nsim[[2]]$summary[[3]]$n,
-                 nsim[[2]]$summary[[4]]$n,
-                 nsim[[2]]$summary[[5]]$n,
-                 nsim[[3]]$summary[[1]]$n,
-                 nsim[[3]]$summary[[2]]$n,
-                 nsim[[3]]$summary[[3]]$n,
-                 nsim[[3]]$summary[[4]]$n,
-                 nsim[[3]]$summary[[5]]$n,
-                 nsim[[4]]$summary[[1]]$n,
-                 nsim[[4]]$summary[[2]]$n,
-                 nsim[[4]]$summary[[3]]$n,
-                 nsim[[4]]$summary[[4]]$n,
-                 nsim[[4]]$summary[[5]]$n)
-write.csv(npoints, paste0('summary-points-', mn, '.csv'))
-
-
 ### --------------------------------------------------------------------------->> Mesh Construction 
 ### Mesh size influences the computational time need to fit the model,
 ### define the study region
